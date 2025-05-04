@@ -1,163 +1,437 @@
-# Data Structure and Algorithm Patterns
-
-This repository contains implementations of common algorithm patterns used in coding interviews, implemented in multiple programming languages (C++, Java, Go, and Python).
-
-## Table of Contents
-
-1. [Sliding Window](#sliding-window)
-2. [Two Pointers](#two-pointers)
-3. [Fast & Slow Pointers](#fast--slow-pointers)
-4. [Merge Intervals](#merge-intervals)
-5. [Cyclic Sort](#cyclic-sort)
-6. [In-place Reversal of a LinkedList](#in-place-reversal-of-a-linkedlist)
-7. [Tree Breadth First Search](#tree-breadth-first-search)
-8. [Tree Depth First Search](#tree-depth-first-search)
-9. [Two Heaps](#two-heaps)
-10. [Subsets](#subsets)
-11. [Modified Binary Search](#modified-binary-search)
-12. [Bitwise XOR](#bitwise-xor)
-13. [Top 'K' Elements](#top-k-elements)
-14. [K-way Merge](#k-way-merge)
-15. [0/1 Knapsack](#01-knapsack)
-16. [Topological Sort](#topological-sort)
-
-## Pattern Descriptions
-
-### Sliding Window
-
-The Sliding Window pattern is used to perform a required operation on a specific window size of a given array or linked list, such as finding the longest subarray containing all 1s. Sliding Window starts from the 1st element and keeps shifting right by one element and adjusts the length of the window according to the problem that you are solving. It's useful for keeping track of a subset of data in an array/string.
-
-**Time Complexity**: O(N) where N is the size of the input array.
-
-### Two Pointers
-
-The Two Pointers pattern uses two pointers to iterate through the data structure in tandem until one or both of the pointers hit a certain condition. Two Pointers is often useful when searching pairs in a sorted array or linked list; for example, when you need to find a target value from a sorted array.
-
-**Time Complexity**: O(N) where N is the size of the input array.
-
-### Fast & Slow Pointers
-
-The Fast & Slow pointer approach, also known as the Hare & Tortoise algorithm, is a pointer algorithm that uses two pointers which move through the array (or sequence/LinkedList) at different speeds. This approach is quite useful when dealing with cyclic LinkedLists or arrays.
-
-By moving at different speeds, the algorithm proves that the two pointers are bound to meet. The fast pointer should catch the slow pointer once both the pointers are in a cyclic loop.
-
-**Common problems**: Finding cycles in a linked list, finding the middle of a linked list in one pass.
-
-### Merge Intervals
-
-The Merge Intervals pattern is an efficient technique to deal with overlapping intervals. In many interval-related problems, we either need to find overlapping intervals or merge intervals if they overlap.
-
-Given two intervals (a and b), there will be six distinct ways the two intervals can relate to each other:
-
-1. a and b do not overlap
-2. a and b overlap, b ends after a
-3. a completely overlaps b
-4. a and b overlap, a ends after b
-5. b completely overlaps a
-6. a and b do not overlap
-
-**Time Complexity**: O(N*logN) where N is the total number of intervals.
-
-### Cyclic Sort
-
-The Cyclic Sort pattern is used to deal with problems involving arrays containing numbers in a given range. This pattern places each number at its correct position in the array, and keeps swapping numbers until they are in their correct positions. It's especially useful when the input array contains numbers from 1 to n (with possible duplicates or missing numbers).
-
-**Time Complexity**: O(N) where N is the size of the input array.
-
-### In-place Reversal of a LinkedList
-
-In many problems, we are asked to reverse the links between a set of nodes of a LinkedList. Often, the constraint is that we need to do this in-place, i.e., using the existing node objects and without using extra memory.
-
-This pattern reverses one node at a time, starting with the current node and moving backward through the list, reconnecting the next pointers to point in the opposite direction.
-
-**Time Complexity**: O(N) where N is the total number of nodes in the LinkedList.
-
-### Tree Breadth First Search
-
-The Tree BFS pattern is based on the Breadth First Search (BFS) technique to traverse a tree. It uses a queue to keep track of all the nodes of a level before jumping to the next level. This is also called level order traversal.
-
-**Time Complexity**: O(N) where N is the total number of nodes in the tree.
-**Space Complexity**: O(W) where W is the maximum width of the tree.
-
-### Tree Depth First Search
-
-The Tree DFS pattern is based on the Depth First Search (DFS) technique to traverse a tree. We use recursion (or an explicit stack for an iterative approach) to keep track of all previous (parent) nodes while traversing. This pattern is useful for problems involving tree paths or tree structure analysis.
-
-**Time Complexity**: O(N) where N is the total number of nodes in the tree.
-**Space Complexity**: O(H) where H is the height of the tree, for recursion stack.
-
-### Two Heaps
-
-The Two Heaps pattern uses two heaps to efficiently solve problems where you need to find the median of a set of numbers, or need to find the smallest element in one part and the biggest element in another part. It uses a Min Heap to find the smallest element and a Max Heap to find the biggest element.
-
-**Time Complexity**: O(log N) for heap operations where N is the number of elements in the heaps.
-
-### Subsets
-
-The Subsets pattern deals with problems that involve finding permutations and combinations of a given set of elements. It uses an efficient Breadth First Search (BFS) approach to generate all possible subsets, combinations, or permutations.
-
-**Time Complexity**: O(2^N) for generating all subsets where N is the number of elements.
-
-### Modified Binary Search
-
-The Modified Binary Search pattern is a variation of the traditional binary search. It's used when dealing with sorted arrays or lists, but with some modifications such as finding an element in a rotated sorted array, or finding a peak in a bitonic array.
-
-**Time Complexity**: O(log N) where N is the size of the array.
-
-### Bitwise XOR
-
-The Bitwise XOR pattern uses XOR operations to solve various mathematical and bit manipulation problems efficiently. XOR is particularly useful for solving problems involving finding missing numbers, finding duplicate numbers, detecting a single different element, etc.
-
-**Time Complexity**: O(N) where N is the size of the input.
-
-### Top 'K' Elements
-
-The Top 'K' Elements pattern is used to find the top (or bottom) K elements from a dataset. The best data structure to use for finding Top 'K' Elements is a Heap. This pattern is useful for solving problems like "Find the K largest elements in an array" or "Find K closest points to the origin."
-
-**Time Complexity**: O(N log K) for building a heap where N is the total input elements.
-
-### K-way Merge
-
-The K-way Merge pattern helps solve problems involving a set of sorted arrays. Whenever we're given K sorted arrays, we can use a heap to efficiently perform a sorted traversal of all elements. We push the smallest element of each array into a Min Heap and then extract the minimum element from the heap and add the next element from the same array.
-
-**Time Complexity**: O(N log K) where K is the number of arrays and N is the total number of elements in all arrays.
-
-### 0/1 Knapsack
-
-The 0/1 Knapsack pattern is a dynamic programming pattern based on the knapsack problem. It's useful when you need to optimize (maximize or minimize) a certain parameter, given some constraints. The pattern is about filling a knapsack of fixed capacity with items of different values and weights to maximize the value.
-
-**Time Complexity**: O(N*C) where N is the number of items and C is the knapsack capacity.
-
-### Topological Sort
-
-The Topological Sort pattern is used to find a linear ordering of elements that have dependencies on each other. It's particularly useful for scheduling problems where some tasks need to be completed before others.
-
-**Time Complexity**: O(V+E) where V is the number of vertices and E is the number of edges in the graph.
-
-## Repository Structure
-
-This repository contains implementations of all the above patterns in four programming languages:
-
-- C++
-- Java
-- Go
-- Python
-
-Each implementation includes:
-- Core algorithm implementation
-- Examples of common problems solved using the pattern
-- Test cases to verify correctness
-
-## Usage
-
-To run any specific pattern implementation, navigate to the respective language directory and run the appropriate file.
-
-For example, to run the Sliding Window pattern in Python:
-
-```bash
-python Python/sliding_window.py
+# 🎯 Data Structure and Algorithm Patterns
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Languages](https://img.shields.io/badge/Languages-4-blue.svg)](https://github.com/yourusername/dsa-patterns)
+[![Patterns](https://img.shields.io/badge/Patterns-16-green.svg)](https://github.com/yourusername/dsa-patterns)
+
+> A comprehensive collection of algorithm patterns implemented in multiple languages to help you ace coding interviews! 🚀
+
+## 📚 Table of Contents
+
+| # | Pattern | Description |
+|---|---------|-------------|
+| 1 | [Sliding Window](#sliding-window) | Efficient subarray operations |
+| 2 | [Two Pointers](#two-pointers) | Array manipulation with dual pointers |
+| 3 | [Fast & Slow Pointers](#fast--slow-pointers) | Cycle detection in linked lists |
+| 4 | [Merge Intervals](#merge-intervals) | Handling overlapping intervals |
+| 5 | [Cyclic Sort](#cyclic-sort) | Sorting numbers in a given range |
+| 6 | [In-place Reversal](#in-place-reversal-of-a-linkedlist) | Reversing linked lists in-place |
+| 7 | [Tree BFS](#tree-breadth-first-search) | Level-order tree traversal |
+| 8 | [Tree DFS](#tree-depth-first-search) | Depth-first tree traversal |
+| 9 | [Two Heaps](#two-heaps) | Median finding and more |
+| 10 | [Subsets](#subsets) | Generating all possible subsets |
+| 11 | [Modified Binary Search](#modified-binary-search) | Advanced binary search variations |
+| 12 | [Bitwise XOR](#bitwise-xor) | Efficient bit manipulation |
+| 13 | [Top 'K' Elements](#top-k-elements) | Finding top K elements |
+| 14 | [K-way Merge](#k-way-merge) | Merging multiple sorted arrays |
+| 15 | [0/1 Knapsack](#01-knapsack) | Dynamic programming optimization |
+| 16 | [Topological Sort](#topological-sort) | Dependency resolution |
+
+## 🧩 Pattern Descriptions
+
+### 🔄 Sliding Window
+**Time Complexity**: O(N) | **Space Complexity**: O(1)
+
+The Sliding Window pattern is used to perform operations on a specific window size of a given array or linked list. It's particularly useful for:
+- Finding the longest subarray containing all 1s
+- Calculating averages of subarrays
+- Finding maximum/minimum in a window
+
+```python
+# Example: Maximum sum of subarray of size K
+def max_subarray_sum(arr, k):
+    window_sum = sum(arr[:k])
+    max_sum = window_sum
+    
+    for i in range(len(arr) - k):
+        window_sum = window_sum - arr[i] + arr[i + k]
+        max_sum = max(max_sum, window_sum)
+    
+    return max_sum
 ```
 
-## Contributions
+### 🎯 Two Pointers
+**Time Complexity**: O(N) | **Space Complexity**: O(1)
 
-Contributions are welcome! Please feel free to submit a Pull Request. 
+The Two Pointers pattern uses two pointers to iterate through data structures in tandem. Common applications:
+- Finding pairs in a sorted array
+- Removing duplicates
+- Finding subarrays with given sum
+
+```python
+# Example: Finding pairs with target sum
+def find_pair(arr, target):
+    left, right = 0, len(arr) - 1
+    while left < right:
+        current_sum = arr[left] + arr[right]
+        if current_sum == target:
+            return [left, right]
+        elif current_sum < target:
+            left += 1
+        else:
+            right -= 1
+    return [-1, -1]
+```
+
+### 🐇 Fast & Slow Pointers
+**Time Complexity**: O(N) | **Space Complexity**: O(1)
+
+The Fast & Slow pointer approach is essential for:
+- Cycle detection in linked lists
+- Finding the middle of a linked list
+- Finding the start of a cycle
+
+```python
+# Example: Cycle detection
+def has_cycle(head):
+    slow = fast = head
+    while fast and fast.next:
+        slow = slow.next
+        fast = fast.next.next
+        if slow == fast:
+            return True
+    return False
+```
+
+### 📊 Merge Intervals
+**Time Complexity**: O(N*logN) | **Space Complexity**: O(N)
+
+The Merge Intervals pattern handles overlapping intervals efficiently:
+- Merging overlapping intervals
+- Finding conflicting appointments
+- Scheduling problems
+
+```python
+# Example: Merging overlapping intervals
+def merge_intervals(intervals):
+    intervals.sort(key=lambda x: x[0])
+    merged = []
+    for interval in intervals:
+        if not merged or merged[-1][1] < interval[0]:
+            merged.append(interval)
+        else:
+            merged[-1][1] = max(merged[-1][1], interval[1])
+    return merged
+```
+
+### 🔄 Cyclic Sort
+**Time Complexity**: O(N) | **Space Complexity**: O(1)
+
+The Cyclic Sort pattern is perfect for:
+- Sorting numbers in a given range
+- Finding missing numbers
+- Finding duplicate numbers
+
+```python
+# Example: Cyclic sort
+def cyclic_sort(nums):
+    i = 0
+    while i < len(nums):
+        j = nums[i] - 1
+        if nums[i] != nums[j]:
+            nums[i], nums[j] = nums[j], nums[i]
+        else:
+            i += 1
+    return nums
+```
+
+### 🔗 In-place Reversal of a LinkedList
+**Time Complexity**: O(N) | **Space Complexity**: O(1)
+
+This pattern is essential for:
+- Reversing linked lists
+- Reversing sublists
+- Palindrome checking
+
+```python
+# Example: Reversing a linked list
+def reverse_linked_list(head):
+    prev = None
+    current = head
+    while current:
+        next_node = current.next
+        current.next = prev
+        prev = current
+        current = next_node
+    return prev
+```
+
+### 🌳 Tree Breadth First Search
+**Time Complexity**: O(N) | **Space Complexity**: O(W)
+
+The Tree BFS pattern is used for:
+- Level order traversal
+- Finding minimum depth
+- Finding right view
+
+```python
+# Example: Level order traversal
+def level_order_traversal(root):
+    if not root:
+        return []
+    result = []
+    queue = [root]
+    while queue:
+        level_size = len(queue)
+        current_level = []
+        for _ in range(level_size):
+            node = queue.pop(0)
+            current_level.append(node.val)
+            if node.left:
+                queue.append(node.left)
+            if node.right:
+                queue.append(node.right)
+        result.append(current_level)
+    return result
+```
+
+### 🌲 Tree Depth First Search
+**Time Complexity**: O(N) | **Space Complexity**: O(H)
+
+The Tree DFS pattern is useful for:
+- Path sum problems
+- Tree serialization
+- Finding diameter
+
+```python
+# Example: Path sum
+def has_path_sum(root, target_sum):
+    if not root:
+        return False
+    if not root.left and not root.right:
+        return target_sum == root.val
+    return (has_path_sum(root.left, target_sum - root.val) or
+            has_path_sum(root.right, target_sum - root.val))
+```
+
+### ⚖️ Two Heaps
+**Time Complexity**: O(logN) | **Space Complexity**: O(N)
+
+The Two Heaps pattern is perfect for:
+- Finding median of a stream
+- Sliding window median
+- Interval problems
+
+```python
+# Example: Median of a stream
+class MedianFinder:
+    def __init__(self):
+        self.max_heap = []  # smaller half
+        self.min_heap = []  # larger half
+
+    def add_num(self, num):
+        heapq.heappush(self.max_heap, -num)
+        heapq.heappush(self.min_heap, -heapq.heappop(self.max_heap))
+        if len(self.min_heap) > len(self.max_heap):
+            heapq.heappush(self.max_heap, -heapq.heappop(self.min_heap))
+```
+
+### 🔢 Subsets
+**Time Complexity**: O(2^N) | **Space Complexity**: O(2^N)
+
+The Subsets pattern is used for:
+- Generating all subsets
+- Permutations
+- Combinations
+
+```python
+# Example: Generating subsets
+def generate_subsets(nums):
+    subsets = [[]]
+    for num in nums:
+        n = len(subsets)
+        for i in range(n):
+            subsets.append(subsets[i] + [num])
+    return subsets
+```
+
+### 🔍 Modified Binary Search
+**Time Complexity**: O(logN) | **Space Complexity**: O(1)
+
+The Modified Binary Search pattern is used for:
+- Finding elements in rotated arrays
+- Finding peak elements
+- Bitonic arrays
+
+```python
+# Example: Finding element in rotated array
+def search_rotated_array(nums, target):
+    left, right = 0, len(nums) - 1
+    while left <= right:
+        mid = (left + right) // 2
+        if nums[mid] == target:
+            return mid
+        if nums[left] <= nums[mid]:
+            if nums[left] <= target < nums[mid]:
+                right = mid - 1
+            else:
+                left = mid + 1
+        else:
+            if nums[mid] < target <= nums[right]:
+                left = mid + 1
+            else:
+                right = mid - 1
+    return -1
+```
+
+### 🧮 Bitwise XOR
+**Time Complexity**: O(N) | **Space Complexity**: O(1)
+
+The Bitwise XOR pattern is used for:
+- Finding missing numbers
+- Finding single numbers
+- Bit manipulation
+
+```python
+# Example: Finding single number
+def single_number(nums):
+    result = 0
+    for num in nums:
+        result ^= num
+    return result
+```
+
+### 🔝 Top 'K' Elements
+**Time Complexity**: O(N logK) | **Space Complexity**: O(K)
+
+The Top 'K' Elements pattern is used for:
+- Finding K largest elements
+- Finding K closest points
+- Frequency problems
+
+```python
+# Example: Finding K largest elements
+def find_k_largest(nums, k):
+    return heapq.nlargest(k, nums)
+```
+
+### 🔄 K-way Merge
+**Time Complexity**: O(N logK) | **Space Complexity**: O(K)
+
+The K-way Merge pattern is used for:
+- Merging K sorted lists
+- Finding smallest range
+- External sorting
+
+```python
+# Example: Merging K sorted lists
+def merge_k_sorted_lists(lists):
+    min_heap = []
+    for i, lst in enumerate(lists):
+        if lst:
+            heapq.heappush(min_heap, (lst[0], i, 0))
+    
+    result = []
+    while min_heap:
+        val, list_idx, element_idx = heapq.heappop(min_heap)
+        result.append(val)
+        if element_idx + 1 < len(lists[list_idx]):
+            heapq.heappush(min_heap, (lists[list_idx][element_idx + 1], list_idx, element_idx + 1))
+    return result
+```
+
+### 🎒 0/1 Knapsack
+**Time Complexity**: O(N*C) | **Space Complexity**: O(C)
+
+The 0/1 Knapsack pattern is used for:
+- Resource allocation
+- Optimization problems
+- Dynamic programming
+
+```python
+# Example: 0/1 Knapsack
+def knapsack(weights, values, capacity):
+    n = len(weights)
+    dp = [0] * (capacity + 1)
+    for i in range(n):
+        for w in range(capacity, weights[i] - 1, -1):
+            dp[w] = max(dp[w], dp[w - weights[i]] + values[i])
+    return dp[capacity]
+```
+
+### 📊 Topological Sort
+**Time Complexity**: O(V+E) | **Space Complexity**: O(V)
+
+The Topological Sort pattern is used for:
+- Task scheduling
+- Course prerequisites
+- Dependency resolution
+
+```python
+# Example: Topological sort
+def topological_sort(vertices, edges):
+    graph = {i: [] for i in range(vertices)}
+    in_degree = {i: 0 for i in range(vertices)}
+    
+    for parent, child in edges:
+        graph[parent].append(child)
+        in_degree[child] += 1
+    
+    sources = deque([i for i in range(vertices) if in_degree[i] == 0])
+    sorted_order = []
+    
+    while sources:
+        vertex = sources.popleft()
+        sorted_order.append(vertex)
+        for child in graph[vertex]:
+            in_degree[child] -= 1
+            if in_degree[child] == 0:
+                sources.append(child)
+    
+    return sorted_order if len(sorted_order) == vertices else []
+```
+
+## 🏗️ Repository Structure
+
+```
+.
+├── C++/
+│   ├── sliding_window.cpp
+│   ├── two_pointers.cpp
+│   └── ...
+├── Java/
+│   ├── SlidingWindow.java
+│   ├── TwoPointers.java
+│   └── ...
+├── Go/
+│   ├── sliding_window.go
+│   ├── two_pointers.go
+│   └── ...
+└── Python/
+    ├── sliding_window.py
+    ├── two_pointers.py
+    └── ...
+```
+
+## 🚀 Usage
+
+Each pattern is implemented in multiple languages. To run a specific implementation:
+
+```bash
+# Python
+python Python/sliding_window.py
+
+# Java
+javac Java/SlidingWindow.java
+java SlidingWindow
+
+# C++
+g++ C++/sliding_window.cpp -o sliding_window
+./sliding_window
+
+# Go
+go run Go/sliding_window.go
+```
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- Inspired by various coding interview preparation resources
+- Special thanks to the open-source community 
